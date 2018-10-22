@@ -1,0 +1,39 @@
+#header {
+  display: inline-flex;
+  width: 100%;
+  box-shadow: 3px 3px 3px 3px #ccc;
+  background-color: #ddd;
+  color: black;
+}
+
+h1 {
+  margin-left: 15px;
+}
+
+ul {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 15px;
+  
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 20px;
+
+
+    a {
+      text-decoration: none;
+      color: #222;
+      font-size: 22px;
+
+      &:hover {
+        color: darken(blue, 25%);
+      }
+    }
+  }
+}
+
