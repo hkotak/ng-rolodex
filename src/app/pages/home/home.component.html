@@ -1,1 +1,23 @@
 <app-header></app-header>
+
+
+<section>
+  <h2 class="input"> Search for a contact</h2>
+  <br>
+  <div id="wrap">
+    <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?">
+      <button class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+</section>
+<div class="contactBox">
+  <div class="cards" *ngFor="let char of characters">
+    <div>Name: {{ char.name }} </div>
+    <div>Height: {{ char.height }}</div>
+    <div>Gender: {{ char.gender }}</div>
+    <div>Birth Year: {{ char.birth_year }}</div>
+  </div>
+</div>

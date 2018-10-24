@@ -7,6 +7,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import { HomeComponent } from './pages/home/home.component'
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { NewContactComponent } from './pages/new-contact/new-contact.component';
 
 
 const routes: Routes = [
@@ -14,6 +17,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'contacts', component: ContactsComponent },
+  { path: 'new-contact', component: NewContactComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' } //What does this one do?
 
 ];

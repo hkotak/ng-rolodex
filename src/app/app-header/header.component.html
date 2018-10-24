@@ -1,16 +1,9 @@
-<div id="header">
-  <h1>
-    {{ title }}
-  </h1>
-  <ul>
-    <li>
-      <a routerLink="/home">Home</a>
-    </li>
-    <li>View All Contacts</li>
-    <li>Create Contacts</li>
-    <li>My Profile</li>
-    <li>
-      <button>Log Out</button>
-    </li>
-  </ul>
-</div>
+<header>
+  <h2><a routerLink="/home">{{ title }}</a></h2>
+  <nav>
+    <li><a routerLink="/contacts">View All Contacts</a></li>
+    <li><a routerLink="/new-contact">Create Contacts</a></li>
+    <li><a routerLink="/profile">My Profile</a></li>
+    <li><a routerLink="/">Log Out</a></li>
+  </nav>
+</header>

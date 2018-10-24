@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +10,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LandingHeaderComponent } from './landing-header/landing-header.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { NewContactComponent } from './pages/new-contact/new-contact.component';
+
+import { BackendService } from './services/backend.service'
 
 @NgModule({
   declarations: [
@@ -18,13 +24,20 @@ import { LandingHeaderComponent } from './landing-header/landing-header.componen
     RegisterComponent,
     LandingComponent,
     HomeComponent,
-    LandingHeaderComponent
+    ProfileComponent,
+    ContactsComponent,
+    NewContactComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    BackendService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

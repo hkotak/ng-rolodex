@@ -1,39 +1,53 @@
-#header {
-  display: inline-flex;
-  width: 100%;
-  box-shadow: 3px 3px 3px 3px #ccc;
-  background-color: #ddd;
-  color: black;
+/*-------------
+ 	Header
+-------------*/
+
+header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+  padding: 35px 100px 0;
+  font-size: 20px;
 }
 
-h1 {
-  margin-left: 15px;
+header h2{
+	font-family: 'Quicksand', sans-serif;
 }
 
-ul {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  padding: 15px;
-  
-
-  li {
-    list-style-type: none;
-    display: inline-block;
-    margin-right: 15px;
-    font-weight: bold;
-    font-size: 20px;
-
-
-    a {
-      text-decoration: none;
-      color: #222;
-      font-size: 22px;
-
-      &:hover {
-        color: darken(blue, 25%);
-      }
-    }
-  }
+header nav{
+	display: flex;
 }
 
+header nav li{
+	margin: 0 15px;
+}
+
+header nav li:first-child{
+	margin-left: 0;	
+}
+
+header nav li:last-child{
+	margin-right: 0;	
+}
+
+@media (max-width: 1000px){
+	header{
+		padding: 20px 50px;
+	}
+}
+
+@media (max-width: 700px){
+	header{
+		flex-direction: column;		
+	}
+
+	header h2{
+		margin-bottom: 15px;
+	}
+}
