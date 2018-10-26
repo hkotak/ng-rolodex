@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
     this.backend.getCharacter()
       .then((data) => {
-        let people = data.results;
+        let people = data['results'];
 
         console.log("DATA", people)
 
