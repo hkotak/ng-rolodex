@@ -10,6 +10,7 @@ export class BackendService {
 
   characters: any[] = [];
 
+
   constructor(private http: HttpClient) { }
 
   getCharacter() {
@@ -17,8 +18,10 @@ export class BackendService {
     console.log("BACKEND CHAR: ", this.characters);
 
     const url = this.baseUrl + 'people/';
+
     return this.http.get(url).toPromise();
   }
+
 
   addCharacter(character) {
     this.characters.push(character)

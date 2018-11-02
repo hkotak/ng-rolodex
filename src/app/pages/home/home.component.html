@@ -6,18 +6,35 @@
   <br>
   <div id="wrap">
     <div class="search">
-      <input type="text" class="searchTerm" placeholder="What are you looking for?">
-      <button class="searchButton">
+
+      <!-- <input type="text" (input)="showCards($event)" [(ngModel)]="value" ng-change="show()" class="searchTerm" -->
+
+      <input type="text" (keyup)="showCards()" [(ngModel)]="value" class="searchTerm" placeholder="What are you looking for?">
+
+      <button class="searchButton" (click)="showAll()">
         <i class="fa fa-search"></i>
       </button>
     </div>
   </div>
 </section>
 <div class="contactBox">
-  <div class="cards" *ngFor="let char of characters">
-    <div>Name: {{ char.name }} </div>
-    <div>Height: {{ char.height }}</div>
-    <div>Gender: {{ char.gender }}</div>
-    <div>Birth Year: {{ char.birth_year }}</div>
+  <div class="cards" style="display:none" *ngFor="let contact of contacts">
+    <div class="name">{{ contact.name }} </div>
+    <div class="location">{{ contact.address }} </div>
+    <div class="hidden" style="display:none">
+      <div class="mobile">{{ contact.mobile }} </div>
+      <div class="work">{{ contact.work }} </div>
+      <div class="home">{{ contact.home }} </div>
+      <div class="email">{{ contact.email }} </div>
+      <div class="twitter">{{ contact.twitter }} </div>
+      <div class="instagram">{{ contact.instagram }} </div>
+      <div class="github">{{ contact.github }} </div>
+    </div>
+
+
+
+    <!-- <div class="height">Height: {{ char.height }}</div>
+    <div class="gender">Gender: {{ char.gender }}</div>
+    <div class="birth_year">Birth Year: {{ char.birth_year }}</div> -->
   </div>
 </div>

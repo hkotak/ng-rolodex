@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ApiService } from './services/api.service';
+import { FilterPipe } from './services/filter.pipe';
+
+import { BackendService } from './services/backend.service'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './app-header/header.component';
@@ -14,10 +19,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { NewContactComponent } from './pages/new-contact/new-contact.component';
 
-import { BackendService } from './services/backend.service'
 
 @NgModule({
   declarations: [
+    FilterPipe,
     AppComponent,
     HeaderComponent,
     LoginComponent,
@@ -36,6 +41,7 @@ import { BackendService } from './services/backend.service'
     HttpClientModule
   ],
   providers: [
+    ApiService,
     BackendService
   ],
   bootstrap: [AppComponent]

@@ -10,12 +10,16 @@ import { HomeComponent } from './pages/home/home.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { NewContactComponent } from './pages/new-contact/new-contact.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'contacts', component: ContactsComponent },
@@ -26,7 +30,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes),],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
