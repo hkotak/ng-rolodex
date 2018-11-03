@@ -1,7 +1,88 @@
 <app-header></app-header>
 
 <section>
-  <h2>
-    new-contact works!
-  </h2>
+  <div class="form">
+
+    <div class="tab-content">
+      <div id="signup">
+        <h1>Create New Contact</h1>
+
+        <form action="/api/new-contact" method="post">
+
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>
+                Name<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" />
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Address<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Mobile #<span class="req">*</span>
+            </label>
+            <input type="number" required autocomplete="off" />
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Work #<span class="req">*</span>
+            </label>
+            <input type="number" required autocomplete="off" />
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Home #<span class="req">*</span>
+            </label>
+            <input type="number" required autocomplete="off" />
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Email<span class="req">*</span>
+            </label>
+            <input type="email" required autocomplete="off" />
+          </div>
+
+
+          <div class="field-wrap">
+            <label>
+              Twitter<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" />
+          </div>
+
+
+          <div class="field-wrap">
+            <label>
+              Instagram<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" />
+          </div>
+
+
+          <div class="field-wrap">
+            <label>
+              Github<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" />
+          </div>
+
+          <button type="submit" class="button button-block">Create</button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
 </section>

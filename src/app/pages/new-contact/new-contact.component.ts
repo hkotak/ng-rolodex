@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service'
+
 
 @Component({
   selector: 'app-new-contact',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewContactComponent implements OnInit {
 
-  constructor() { }
+  contacts: any;
+  contactList: Array<Object>
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
   }

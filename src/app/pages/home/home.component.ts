@@ -16,7 +16,7 @@ export class HomeComponent {
 
 
   constructor(private api: ApiService) {
-  }
+  };
 
 
   loadContacts() {
@@ -29,22 +29,9 @@ export class HomeComponent {
         this.contacts = data;
         this.contactList = this.contacts
 
-        console.log("FRONT END DATA: ", data)
-        console.log(Array.isArray(data));
-        console.log(typeof data);
-
-
-
-        // if (this.contacts.length > 0) {
-        //   return this.contacts
-        // } else {
-        //   console.log('is else block executing')
-
-        //   for (let i = 0; i < this.contacts.length; i++) {
-        //     console.log('MY PEOPLE: ', this.contacts[i])
-        //     this.contacts.push(data[i])
-        //   }
-        // }
+        // console.log("FRONT END DATA: ", data)
+        // console.log(Array.isArray(data));
+        // console.log(typeof data);
       })
   }
 

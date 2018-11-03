@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+
+.title {
+	padding-bottom: 30px;
+	font-size: 35px;
+}
+
+
+section{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 125px 100px 50px 100px;
+	
+}
+
+.contactBox {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: left;
+}
+
+.cards{
+	width: 100%;
+	flex-grow: 1;
+	padding: 20px;
+	margin: 10px;
+	border-radius: 25px;
+	font-size: 20px;
+	background-color: palevioletred;
+	color: black;
+	
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
