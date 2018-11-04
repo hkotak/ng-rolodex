@@ -33,6 +33,9 @@ export class HomeComponent {
         // console.log(Array.isArray(data));
         // console.log(typeof data);
       })
+      .catch(err => {
+        console.log('HOME COMPONENT ERROR: ', err)
+      })
   }
 
   showAll() {

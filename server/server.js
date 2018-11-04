@@ -22,6 +22,10 @@ const api = require('../server/routes/api.js')
 //~~~~ SET API ROUTES ~~~~/
 app.use('/api', api)
 
+//~~~~ SERVER SANITY CHECK ~~~~//
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`)
