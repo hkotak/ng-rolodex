@@ -6,15 +6,12 @@ const bodyParser = require('body-parser');
 
 //~~~~ CROSS-ORIGIN RESOURCE SHARING ~~~~//
 const cors = require('cors')
-const corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200
-}
+
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..build')));
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 //~~~~ API ROUTES ~~~~/
 const api = require('../server/routes/api.js')

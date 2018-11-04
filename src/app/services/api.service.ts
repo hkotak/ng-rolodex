@@ -8,7 +8,10 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
 
-  baseUrl: string = "http://localhost:5000";
+  // baseUrl: string = "http://localhost:5000";
+  baseUrl: string = "http://34.219.110.93:5000/";
+
+
 
   contacts: {};
 
