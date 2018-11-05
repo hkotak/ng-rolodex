@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
 import { FilterPipe } from './services/filter.pipe';
 
-import { BackendService } from './services/backend.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,8 +40,7 @@ import { NewContactComponent } from './pages/new-contact/new-contact.component';
     HttpClientModule
   ],
   providers: [
-    ApiService,
-    BackendService
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

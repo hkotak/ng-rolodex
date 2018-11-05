@@ -30,23 +30,48 @@ router.post('/new-contact', (req, res) => {
     email: req.body.email,
     twitter: req.body.twitter,
     instagram: req.body.instagram,
-    github: req.body.github
+    github: req.body.github,
+    created_by: 1
   }
 
   Contacts
     .forge(newContact)
     .save()
-    .then(() => {
-      return Contacts.fetchAll()
-    })
-    .then(contacts => {
-      res.json(contacts)
+    .then((results) => {
+      res.json(results)
     })
     .catch(err => {
       console.log('SERVER ADD ERROR: ', err)
-      res.json('error')
+      res.json('SERVER ADD ERROR')
     })
 })
 
+// router.post(‘/setuser’,(req,res)=>{
+//   var params = {
+//   data:req.body,
+//   headers:req.headers,
+//   msg:”Hi method POST called”
+//   };
+//   res.json(params);
+//  });
+
+
 
 module.exports = router;
+
+
+
+//~~~~ POSTMAN TESTS ~~~~//
+//post
+// {
+// 	"name": "name",
+//     "address": "address",
+//     "mobile": "mobile",
+//     "work": "work",
+//     "home": "home",
+//     "email": "email",
+//     "twitter": "twitter",
+//     "instagram": "instagram",
+//     "github": "github",
+//     "created_by": "1"
+// }

@@ -1,11 +1,7 @@
-/*-------------
- 	Header
--------------*/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 header{
 	position: absolute;
-	top: 0;
-	left: 0;
 	z-index: 10;
 	width: 100%;
 	display: flex;
@@ -13,16 +9,13 @@ header{
 	align-items: center;
 	color: #fff;
   padding: 35px 100px 0;
-  font-size: 22px;
+	font-size: 22px;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 .logo{
   height: 60px;
   width: 60px;
-}
-
-header h2{
-	font-family: 'Quicksand', sans-serif;
 }
 
 header nav{
@@ -74,18 +67,15 @@ header nav li:last-child{
 	text-align: center;
 }
 
+
 .hero h1{
-	font: bold 60px 'Open Sans', sans-serif;
+	font: bold 60px 'Ubuntu', sans-serif;
 	margin-bottom: 15px;
 }
 
 .hero h3{
-	font: normal 28px 'Open Sans', sans-serif;
+	font: normal 28px 'Ubuntu', sans-serif;
 	margin-bottom: 40px;
-}
-
-.hero a.btn{
-	padding: 20px 46px;
 }
 
 @media (max-width: 800px){

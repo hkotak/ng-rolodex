@@ -2,21 +2,17 @@
 
 
 <section>
-  <h2 class="input"> Search for a contact</h2>
-  <br>
-  <div id="wrap">
-    <div class="search">
+  <h1 class="heading"> Search for a contact</h1>
+  <div class="search-box">
+    <input class="search-txt" (keyup)="showCards()" [(ngModel)]="value" type="text" placeholder="Click search to view all!">
 
-      <!-- <input type="text" (input)="showCards($event)" [(ngModel)]="value" ng-change="show()" class="searchTerm" -->
-
-      <input type="text" (keyup)="showCards()" [(ngModel)]="value" class="searchTerm" placeholder="What are you looking for?">
-
-      <button class="searchButton" (click)="showAll()">
-        <i class="fa fa-search"></i>
-      </button>
-    </div>
+    <a class="search-btn" (click)="showAll()">
+      <i class="fa fa-search"></i>
+    </a>
   </div>
+
 </section>
+
 <div class="contactBox">
   <div class="cards" style="display:none" *ngFor="let contact of contacts">
     <div class="name">{{ contact.name }} </div>
