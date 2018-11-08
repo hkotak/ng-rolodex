@@ -2,9 +2,9 @@
 
 <section>
   <div class="form-box">
-    <form [formGroup]="contactForm" (ngSubmit)="addContact()">
+    <form [formGroup]="contactForm" (ngSubmit)="updateContact()">
       <!-- <form (ngSubmit)="addContact()"> -->
-      <h2 class="head">Create New Contact</h2>
+      <h2 class="head">Update {{contact.name}}</h2>
 
       <div class="input-container">
         <mat-form-field>
@@ -44,11 +44,9 @@
         </mat-form-field>
       </div>
       <div class="submit">
-        <button class="sub-but" type="submit">Submit</button>
+        <button class="sub-but" type="submit">Update</button>
       </div>
 
     </form>
   </div>
-
-
 </section>

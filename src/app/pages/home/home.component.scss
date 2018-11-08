@@ -30,13 +30,51 @@ section{
 	flex-wrap: wrap;
 	justify-content: center;
 	text-align: left;
+	padding-bottom: 50px;
+}
+
+.button-box {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	font-family: 'Ubuntu', sans-serif;
+
+	.show-more {
+		padding: 6px;
+		margin: 0px 2px;
+		border-radius: 10px;
+		cursor: pointer;
+		border-color: white;
+		background-color: lightpink;
+	}
+	.edit {
+		padding: 6px;
+		margin: 0px 2px;
+		border-radius: 10px;
+		cursor: pointer;
+		text-decoration:none;
+		border-color: white;
+		background-color: lightpink;
+	}
+	.delete {
+		padding: 6px;
+		margin: 0px 2px;
+		border-radius: 10px;
+		cursor: pointer;
+		border-color: white;
+		background-color: lightpink;
+	}
+	.delete:hover {
+		background: red;
+		transition: .6s;
+	}
 }
 
 .cards{
 	padding: 20px;
 	border-radius: 25px;
 	font-size: 20px;
-	background-color: lightcoral;
+	background-color: lightpink;
 	color: #2f3640;
 	font-family: 'Ubuntu', sans-serif;
 	width: 40%;

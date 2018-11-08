@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service'
+import { HttpClient } from '@angular/common/http'
 import { isArray } from 'util';
 @Component({
   selector: 'app-home',
@@ -11,11 +12,11 @@ export class HomeComponent {
   value = "";
 
   contacts: any;
-  contactList: Array<Object>
+  // contactList: Array<Object>
 
 
 
-  constructor(private api: ApiService) {
+  constructor(private http: HttpClient, private api: ApiService) {
   };
 
 
@@ -27,9 +28,9 @@ export class HomeComponent {
       .then((data) => {
 
         this.contacts = data;
-        this.contactList = this.contacts
+        // this.contactList = this.contacts
 
-        // console.log("FRONT END DATA: ", data)
+        // console.log("FRONT END DATA: ", this.contactList)
         // console.log(Array.isArray(data));
         // console.log(typeof data);
       })
@@ -54,6 +55,8 @@ export class HomeComponent {
   }
 
   showCards() {
+    console.log(this.value);
+
     let search = this.value.toLowerCase();
     // console.log(search)
 
@@ -75,12 +78,18 @@ export class HomeComponent {
   }
 
 
-
-
-
   ngOnInit() {
     this.loadContacts()
   }
+
+  deleteContact(id) {
+    this.api.deleteContactBackend(id).subscribe(res => {
+      window.alert("Are you sure?");
+      window.location.href = "/home";
+      console.log('Deleted');
+    });
+  }
+
 
 
 

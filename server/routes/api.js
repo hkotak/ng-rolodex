@@ -4,7 +4,7 @@ const router = express.Router();
 const Contacts = require('../db/models/contacts.js');
 
 //~~~~ GET ALL CONTACTS ~~~~//
-router.get('/home', (req, res) => {
+router.get('/contacts', (req, res) => {
   Contacts
     .fetchAll()
     .then(contacts => {
@@ -17,9 +17,9 @@ router.get('/home', (req, res) => {
     })
 })
 
+
 //~~~~ ADD NEW CONTACTS ~~~~//
 router.post('/new-contact', (req, res) => {
-  console.log('NEW CONTACT INFO: ', req.body)
 
   const newContact = {
     name: req.body.name,
@@ -46,14 +46,68 @@ router.post('/new-contact', (req, res) => {
     })
 })
 
-// router.post(‘/setuser’,(req,res)=>{
-//   var params = {
-//   data:req.body,
-//   headers:req.headers,
-//   msg:”Hi method POST called”
-//   };
-//   res.json(params);
-//  });
+//~~~~ GET CONTACT BY ID ~~~~//
+router.get('/contacts/:id', (req, res) => {
+  const { id } = req.params;
+
+  Contacts
+    .where({ id })
+    .fetch()
+    .then(contact => {
+      res.json(contact);
+    })
+    .catch(err => {
+      console.log("ERROR GET CONTACT: ", err);
+      res.json("ERROR GET CONTACT");
+    })
+})
+
+//~~~ DELETE BY ID ~~~//
+router.delete('/contacts/:id', (req, res) => {
+
+  const { id } = req.params;
+
+  Contacts
+    .where({ id })
+    .destroy()
+    .then(contact => {
+      res.json(contact)
+    })
+    .catch(err => {
+      res.send('ERROR IN SERVER GET BY ID')
+    })
+})
+
+
+//~~~~ UPDATE CONTACT BY ID ~~~~//
+router.put('/:id', (req, res) => {
+  let id = req.params.id;
+  let {
+    name,
+    address,
+    mobile,
+    work,
+    home,
+    email,
+    twitter,
+    instagram,
+    github,
+    created_by
+  } = req.body;
+
+  Contacts
+    .where({ id })
+    .fetchAll()
+    .then(contact => {
+      return new Contact({ id })
+        .save({ name, address, mobile, work, home, email, twitter, instagram, github, created_by })
+        .then(editedContact => {
+          return res.json(editedContact);
+        })
+    })
+    .catch(err => console.log(err));
+})
+
 
 
 

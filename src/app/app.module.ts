@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ApiService } from './services/api.service';
 import { FilterPipe } from './services/filter.pipe';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { NewContactComponent } from './pages/new-contact/new-contact.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { EditContactComponent } from './pages/edit-contact/edit-contact.component';
+
+
 
 
 @NgModule({
@@ -31,13 +39,22 @@ import { NewContactComponent } from './pages/new-contact/new-contact.component';
     ProfileComponent,
     ContactsComponent,
     NewContactComponent,
+    EditContactComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
+
   ],
   providers: [
     ApiService

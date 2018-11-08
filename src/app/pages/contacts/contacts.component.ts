@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -25,9 +26,9 @@ export class ContactsComponent implements OnInit {
         this.contacts = data;
         this.contactList = this.contacts
 
-        console.log("FRONT END DATA: ", data)
-        console.log(Array.isArray(data));
-        console.log(typeof data);
+        // console.log("FRONT END DATA: ", data)
+        // console.log(Array.isArray(data));
+        // console.log(typeof data);
 
       })
   }

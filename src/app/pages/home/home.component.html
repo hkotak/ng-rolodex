@@ -4,7 +4,7 @@
 <section>
   <h1 class="heading"> Search for a contact</h1>
   <div class="search-box">
-    <input class="search-txt" (keyup)="showCards()" [(ngModel)]="value" type="text" placeholder="Click search to view all!">
+    <input class="search-txt" (keyup)="showCards()" [(ngModel)]="value" type="text" placeholder="Click search to show/hide all!">
 
     <a class="search-btn" (click)="showAll()">
       <i class="fa fa-search"></i>
@@ -16,8 +16,16 @@
 <div class="contactBox">
   <div class="cards" style="display:none" *ngFor="let contact of contacts">
     <div class="name">{{ contact.name }} </div>
-    <div class="location">{{ contact.address }} </div>
+    <div class="button-box">
+      <button class="show-more">Show Info</button>
+      <!-- <button [routerLink]="['/contact/:id', contact.id]" class="edit">Edit</button> -->
+      <button routerLink="/api/contacts/{{contact.id}}" class="edit">Edit</button>
+
+      <button class="delete" (click)="deleteContact(contact.id)" routerLink="/home">Delete</button>
+    </div>
+
     <div class="hidden" style="display:none">
+      <div class="location">{{ contact.address }} </div>
       <div class="mobile">{{ contact.mobile }} </div>
       <div class="work">{{ contact.work }} </div>
       <div class="home">{{ contact.home }} </div>

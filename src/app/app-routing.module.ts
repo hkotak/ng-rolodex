@@ -9,10 +9,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+
 import { NewContactComponent } from './pages/new-contact/new-contact.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { EditContactComponent } from './pages/edit-contact/edit-contact.component';
 
 
 const routes: Routes = [
@@ -24,6 +23,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'new-contact', component: NewContactComponent },
+  { path: 'api/contacts/:id', component: EditContactComponent },
+
+
   { path: '**', redirectTo: '', pathMatch: 'full' } //What does this one do?
 
 ];

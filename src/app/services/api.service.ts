@@ -1,20 +1,7 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-
-export interface Contact {
-  name: string,
-  address: string,
-  mobile: string,
-  work: string,
-  home: string,
-  email: string,
-  twitter: string,
-  instagram: string,
-  github: string,
-  created_by: 1
-}
+import { Observable, of, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,50 +9,87 @@ export interface Contact {
 
 export class ApiService {
 
-  baseUrl: string = "http://localhost:5000";
+  baseUrl: string = "http://localhost:5000/api/";
   // baseUrl: string = "http://34.219.110.93:5000";
 
+  result: any;
   constructor(private http: HttpClient) { }
 
 
-
-
   //~~~~ GET ALL CONTACTS FROM BACKEND TO FRONTEND ~~~~//
-
-
   getContacts() {
-    const url = this.baseUrl + '/api/home';
+    const url = this.baseUrl + '/contacts';
 
     return this.http.get(url).toPromise()
-
   }
-
-  // insertCat(cat: Cat): Observable<Cat> {
-  //   return this.http.post<Cat>('http://localhost:8000/api/cats/', cat);
-  // }
 
   //~~~~ ADD NEW CONTACTS FROM FRONTEND TO BACKEND ~~~~//
-  addContacts(contact: Contact): Observable<Contact> {
-    const url = this.baseUrl + '/api/new-contact';
+  addContacts(name, address, mobile, work, home, email, twitter, instagram, github) {
+    const url = this.baseUrl + 'new-contact';
+    const obj = {
+      name: name,
+      address: address,
+      mobile: mobile,
+      work: work,
+      home: home,
+      email: email,
+      twitter: twitter,
+      instagram: instagram,
+      github: github,
+      created_by: 1
+    };
+    console.log("API.SERVICE OBJ: ", obj)
 
-    return this.http.post<Contact>(url, contact);
+    this.http.post(url, obj)
+      .subscribe(res => {
+        console.log('Contact Added')
+      })
+  }
+
+  //~~~~ GET BY ID ~~~~//
+  getContact(id) {
+    let url = this.baseUrl + 'contacts/' + id;
+
+    return this.http.get(url).pipe(map(res => {
+      console.log("API GET RES: ", res)
+
+      return res;
+    }))
 
   }
 
+  //~~~~ DELETE SELECTED CONTACT BY ID ~~~~//
+  deleteContactBackend(id) {
+    let url = this.baseUrl + 'contacts/' + id;
+    // let url = "http://localhost:5000/api/contacts/" + id
 
-  // addContacts() {
-  //   const url = this.baseUrl + '/api/new-contact';
+    return this.http.delete(url).pipe(map(res => {
+      console.log("API DELETE RES: ", res)
 
-  //   const headers = new HttpHeaders()
-  //     .set('Content-Type', 'application/json')
-  //     .set('Authorization', 'my-auth-token');
+      return res;
+    }))
+  }
 
-  //   return this.http.post(url, JSON.stringify(this.contacts), {
-  //     headers: headers
-  //   })
-  //     .subscribe(data => {
-  //       console.log("API SERVICE POST: ", data)
-  //     })
+  //~~~~ UPDATE SELECTED CONTACT BY ID ~~~~//
+  updateContactBackend(name, address, mobile, work, home, email, twitter, instagram, github, id) {
+    let url = this.baseUrl = '/contact/update/' + id;
 
-  // }
+    const obj = {
+      name: name,
+      address: address,
+      mobile: mobile,
+      work: work,
+      home: home,
+      email: email,
+      twitter: twitter,
+      instagram: instagram,
+      github: github,
+      created_by: 1
+    };
+    this.http.put(url, obj).subscribe(res => {
+      console.log('Contact Updated');
+    })
+  }
+
+
 }
